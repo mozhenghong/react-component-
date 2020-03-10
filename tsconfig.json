@@ -1,5 +1,6 @@
 {
     "compilerOptions": {
+        "outDir": "dist", //dist中生成.d.ts文件
         "declaration": true, // 是否自动创建类型声明文件
         "baseUrl": ".", // 工作根目录
         "module": "esnext", // 指定生成哪个模块系统代码
