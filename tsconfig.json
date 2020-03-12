@@ -23,8 +23,9 @@
         "noImplicitAny": false, // 是否默认禁用 any
         "importHelpers": true,
         "strictNullChecks": true,
-        "allowSyntheticDefaultImports": true,
-        "noUnusedLocals": true,        
+        // "allowSyntheticDefaultImports": true,
+        "esModuleInterop": true,
+        "noUnusedLocals": true,     
       },
       "exclude": [
           "node_modules",
