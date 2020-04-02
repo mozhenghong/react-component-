@@ -19,6 +19,6 @@ describe("classes", () => {
     })
     it('接受0个参数', () => {
         const result = classes()
-        expect(result).toEqual('')
+        expect(result).toEqual("")
     })
 })
