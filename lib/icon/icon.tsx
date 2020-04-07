@@ -7,7 +7,7 @@ interface IconProps extends React.SVGAttributes<SVGElement> {
 }
 const Icon: React.FunctionComponent<IconProps> = ({ className, name, ...restProps }) => {
     return (
-        <svg className={calsses('reactComponent-icon', className)} {...restProps}>
+        <svg className={calsses('moui-icon', className)} {...restProps}>
             <use xlinkHref={`#${name}`} />
         </svg>
     )
