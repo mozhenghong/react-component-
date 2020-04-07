@@ -5,10 +5,13 @@ module.exports =Object.assign({}, base, {
     // mode: 'production',
     mode: 'development',
     //入口
+    entry: {
+        example: './example.tsx',
+    },
     plugins: [
         new HtmlWebpackPlugin({
             title: 'reactComponent',
-            template: 'index.html'
+            template: 'example.html'
         })
     ],   
 })
