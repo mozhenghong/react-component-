@@ -3,7 +3,9 @@ defaults: &defaults
   docker:
     - image: circleci/node:8
 
-version: 2
+version: 2.1
+orbs:
+  node: circleci/node@1.1.6
 jobs:
   prepare:
     <<: *defaults
