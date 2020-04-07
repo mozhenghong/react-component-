@@ -66,27 +66,20 @@ workflows:
           requires:
             - prepare
       - publish:
-          requires:
-            - build
-          filters:
-            tags:
-              only: /^v[0-9]+(\.[0-9]+)*/
-            branches:
-              ignore: /.*/
-# version: 2.1
-# orbs:
-#   node: circleci/node@1.1.6
-# jobs:
-#   build-and-test:
-#     executor:
-#       name: node/default
-#     steps:
-#       - checkout
-#       - node/with-cache:
-#           steps:
-#             - run: npm install
-#             - run: npm test
-# workflows:
-#     build-and-test:
-#       jobs:
-#         - build-and-test
+        requires:
+          - build
+        filters:
+          branches:
+            only: /deploy/
+
+      # 由于ci检测不到tag，无法自动进行部署，所以改为上面只会在分支名带有deploy的时候进行部署---运行以下两行命令就可以完成部署 
+        # git commit . -m "deploy"
+        # git push origin master:deploy
+      # - publish:
+      #     requires:
+      #       - build
+      #     filters:
+      #       tags:
+      #         only: /^v[0-9]+(\.[0-9]+)*/
+      #       branches:
+      #         ignore: /.*/
