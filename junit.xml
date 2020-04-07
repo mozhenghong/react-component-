@@ -1,29 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuites name="jest tests" tests="9" failures="0" time="5.596">
-  <testsuite name="classes" errors="0" failures="0" skipped="0" timestamp="2020-04-03T06:37:54" time="2.669" tests="5">
-    <testcase classname="classes 接受一个className" name="classes 接受一个className" time="0.003">
+<testsuites name="jest tests" tests="9" failures="0" time="7.223">
+  <testsuite name="测试用例" errors="0" failures="0" skipped="0" timestamp="2020-04-07T06:01:31" time="1.836" tests="1">
+    <testcase classname="测试用例 add(1,2)等于3" name="测试用例 add(1,2)等于3" time="0.004">
     </testcase>
-    <testcase classname="classes 接受两个className" name="classes 接受两个className" time="0">
+  </testsuite>
+  <testsuite name="button" errors="0" failures="0" skipped="0" timestamp="2020-04-07T06:01:31" time="2.574" tests="1">
+    <testcase classname="button button是一个div" name="button button是一个div" time="0.013">
+    </testcase>
+  </testsuite>
+  <testsuite name="classes" errors="0" failures="0" skipped="0" timestamp="2020-04-07T06:01:31" time="3.078" tests="5">
+    <testcase classname="classes 接受一个className" name="classes 接受一个className" time="0.002">
+    </testcase>
+    <testcase classname="classes 接受两个className" name="classes 接受两个className" time="0.001">
     </testcase>
     <testcase classname="classes 接受undefined不会出现undefined" name="classes 接受undefined不会出现undefined" time="0">
     </testcase>
     <testcase classname="classes 接受各种奇怪值不会返回" name="classes 接受各种奇怪值不会返回" time="0">
     </testcase>
-    <testcase classname="classes 接受0个参数" name="classes 接受0个参数" time="0.001">
+    <testcase classname="classes 接受0个参数" name="classes 接受0个参数" time="0">
     </testcase>
   </testsuite>
-  <testsuite name="测试用例" errors="0" failures="0" skipped="0" timestamp="2020-04-03T06:37:54" time="2.665" tests="1">
-    <testcase classname="测试用例 add(1,2)等于3" name="测试用例 add(1,2)等于3" time="0.002">
+  <testsuite name="icon" errors="0" failures="0" skipped="0" timestamp="2020-04-07T06:01:31" time="3.145" tests="2">
+    <testcase classname="icon render成功" name="icon render成功" time="0.013">
     </testcase>
-  </testsuite>
-  <testsuite name="button" errors="0" failures="0" skipped="0" timestamp="2020-04-03T06:37:54" time="2.705" tests="1">
-    <testcase classname="button button是一个div" name="button button是一个div" time="0.011">
-    </testcase>
-  </testsuite>
-  <testsuite name="icon" errors="0" failures="0" skipped="0" timestamp="2020-04-03T06:37:54" time="2.693" tests="2">
-    <testcase classname="icon render成功" name="icon render成功" time="0.012">
-    </testcase>
-    <testcase classname="icon 测试onClick事件" name="icon 测试onClick事件" time="0.033">
+    <testcase classname="icon 测试onClick事件" name="icon 测试onClick事件" time="0.054">
     </testcase>
   </testsuite>
 </testsuites>
