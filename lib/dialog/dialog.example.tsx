@@ -30,7 +30,7 @@ export default function () {
                         <button onClick={() => { setVisible(false) }}>取消</button>]
                     }>
                     <div>
-                        这是一个弹窗
+                        这是一个弹窗23
                 </div>
                 </Dialog>
             </div>

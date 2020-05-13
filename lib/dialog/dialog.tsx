@@ -56,46 +56,33 @@ Dialog.defaultProps = {
 }
 
 const alert = (content:string) => {
-    const component = <Dialog visible={true} onClose={() => {
-        ReactDOM.render(React.cloneElement(component, {visible: false}), div)
-        ReactDOM.unmountComponentAtNode(div)
-        div.remove()
-    }}>{content}</Dialog>
-    const div = document.createElement('div')
-    document.body.append(div)
-    ReactDOM.render(component,div)
+   const button = <button onClick={() => close()}>OK</button>
+   const close = modal(content,[button])
 }
 
 const confirm = (content:  string, yes?: ()=>void, no?: ()=> void) => {
     const onYes = () => {
-        ReactDOM.render(React.cloneElement(component,{visible: false}),div)
-        ReactDOM.unmountComponentAtNode(div)
-        div.remove()
+        close()
         yes&&yes()
     }
     const onNo =() => {
-        ReactDOM.render(React.cloneElement(component,{visible: false}),div)
-        ReactDOM.unmountComponentAtNode(div)
-        div.remove()
+        close()
         no&&no()
     }
-    const component = <Dialog visible={true} onClose={onNo} 
-    buttons={[
+    const buttons=[
         <button onClick={onYes}>确定</button>, 
         <button onClick={onNo}>取消</button>
-    ]} >{content}</Dialog>
-    const div = document.createElement('div')
-    document.body.append(div)
-    ReactDOM.render(component, div)
+    ]
+   const close = modal(content,buttons)
 }
 
-const modal = (content: ReactNode|ReactFragment) => {
+const modal = (content: ReactNode|ReactFragment, buttons?: Array<ReactElement>, afterClose?:() => void) => {
     const onClose = () =>{
         ReactDOM.render(React.cloneElement(component,{visible: false}),div)
         ReactDOM.unmountComponentAtNode(div)
         div.remove()
     }
-    const component = <Dialog onClose={onClose} visible={true}>{content}</Dialog>
+    const component = <Dialog onClose={onClose} visible={true} buttons={buttons}>{content}</Dialog>
     const div = document.createElement('div')
     document.body.append(div)
     ReactDOM.render(component, div)
