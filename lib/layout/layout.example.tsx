@@ -4,42 +4,43 @@ import Header from './header';
 import Footer from './footer';
 import Content from './content';
 import Aside from './aside';
+import './layout.example.scss'
 
 export default function () {
     return (
         <div>
             <div>
-                <h2>上下常规布局</h2>
-                <Layout className="out" style={{ height: '300px' }}>
-                    <Header></Header>
-                    <Content></Content>
-                    <Footer></Footer>
+                <h3>上下常规布局</h3>
+                <Layout className="out" style={{ height: '300px',width: '500px' }}>
+                    <Header className="x">header</Header>
+                    <Content className="y">content</Content>
+                    <Footer className="x">footer</Footer>
                 </Layout>
-                <h2>左右布局一</h2>
-                <Layout className="" style={{ height: '300px' }}>
-                    <Header></Header>
+                <h3>左右布局一</h3>
+                <Layout className="" style={{ height: '300px', width: '500px'  }}>
+                    <Header className="x">header</Header>
                     <Layout>
-                        <Aside></Aside>
-                        <Content></Content>
+                        <Aside className="z">aside</Aside>
+                        <Content className="y">content</Content>
                     </Layout>
-                    <Footer></Footer>
+                    <Footer className="x">footer</Footer>
                 </Layout>
-                <h2>左右布局二</h2>
-                <Layout className="" style={{ height: '300px' }}>
-                    <Header></Header>
+                <h3>左右布局二</h3>
+                <Layout className="" style={{ height: '300px', width: '500px'  }}>
+                    <Header className="x">header</Header>
                     <Layout>
-                        <Content></Content>
-                        <Aside></Aside>
+                        <Content className="y">content</Content>
+                        <Aside className="z">aside</Aside>
                     </Layout>
-                    <Footer></Footer>
+                    <Footer className="x">footer</Footer>
                 </Layout>
-                <h2>侧边栏在外</h2>
-                <Layout className="" style={{ height: '300px' }}>
-                    <Aside></Aside>
+                <h3>侧边栏在外</h3>
+                <Layout className="" style={{ height: '300px', width: '500px'  }}>
+                    <Aside className="z">aside</Aside>
                     <Layout>
-                        <Header></Header>
-                        <Content></Content>
-                        <Footer></Footer>
+                        <Header className="x">header</Header>
+                        <Content className="y">content</Content>
+                        <Footer className="x">footer</Footer>
                     </Layout>
                 </Layout>
             </div>
