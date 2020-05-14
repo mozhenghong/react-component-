@@ -1,13 +1,15 @@
 import React from 'react';
 import './importAllIcons';
 import './icon.scss';
-import calsses from '../helpers/classes'
+import {scopedClassMaker} from '../helpers/classes'
 interface IconProps extends React.SVGAttributes<SVGElement> {
     name: string;
 }
-const Icon: React.FunctionComponent<IconProps> = ({ className, name, ...restProps }) => {
+const scopedClass = scopedClassMaker('moui-icon')
+const sc = scopedClass
+const Icon: React.FunctionComponent<IconProps> = ({ className, name, ...rest}) => {
     return (
-        <svg className={calsses('moui-icon', className)} {...restProps}>
+        <svg className={sc('', {extra: className})} {...rest}>
             <use xlinkHref={`#${name}`} />
         </svg>
     )

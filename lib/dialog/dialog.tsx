@@ -2,7 +2,7 @@ import React, {Fragment, ReactElement, ReactNode, ReactFragment} from 'react'
 import ReactDOM from 'react-dom'
 import Icon from '../icon/icon'
 import './dialog.scss'
-import {scopedClassMaker} from '../classes'
+import {scopedClassMaker} from '../helpers/classes'
 
 interface Props {
     visible: boolean;

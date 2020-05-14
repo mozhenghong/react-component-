@@ -1,5 +1,5 @@
 import React, { ReactElement } from 'react';
-import {scopedClassMaker} from '../classes';
+import {scopedClassMaker} from '../helpers/classes';
 import './layout.scss'
 import Aside from './aside'
 
@@ -10,18 +10,10 @@ interface Props extends React.HTMLAttributes<HTMLElement>{
 }
 const Layout: React.FunctionComponent<Props> = (props) => {
     const {className, ...rest} = props
-    let hasAside = false
-    if((props.children as Array<ReactElement>).length) {
-        (props.children as Array<ReactElement>).map((node) => {
-            if(node.type === Aside) {
-                hasAside = true
-            }
-        })
-
-        
-    }
+       let hasAside = ('length' in (props.children as Array<ReactElement>))&&(props.children as Array<ReactElement>)
+       .reduce((result, node) => result || node.type === Aside, false)
     return (
-        <div className={sc('', {extra: [className, hasAside && 'hasAside'].join(' ')})} {...rest}>
+        <div className={sc({'':true, hasAside}, {extra: [className, hasAside && 'hasAside'].join(' ')})} {...rest}>
             {props.children}
         </div>
     )
