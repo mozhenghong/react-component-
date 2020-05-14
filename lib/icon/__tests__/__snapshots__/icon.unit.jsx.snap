@@ -2,7 +2,7 @@
 
 exports[`icon render成功 1`] = `
 <svg
-  className="reactComponent-icon"
+  className="moui-icon"
 >
   <use
     xlinkHref="#wechat"

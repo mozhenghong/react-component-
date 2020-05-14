@@ -29,5 +29,5 @@ function scopedClassMaker(prefix: string) {
     }
 }
 
-export {scopedClassMaker}
-// export default calsses;
+// export {scopedClassMaker}
+export default scopedClassMaker;
