@@ -46,7 +46,18 @@ $border-color: #eeeeee;
      margin-right: 16px;
 
      a {
-         color: $main-color;
+        padding: 8px 16px;
+        color: #333;
+        display: block;
+
+        &:hover{
+            color: $main-color;
+        }
+        &.active{
+            color: #fff;
+            border-right: 4px solid desaturate($color: $main-color, $amount: 50%);
+            background: $main-color;
+        }
      }
 
      h2 {
@@ -55,12 +66,7 @@ $border-color: #eeeeee;
      }
 
      ul {
-         padding: 0 16px;
          min-width: 12em;
-
-         >li {
-             padding: 8px 0;
-         }
      }
 
  }
