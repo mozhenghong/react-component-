@@ -37,7 +37,7 @@ export default function () {
                 <h3>侧边栏在外</h3>
                 <Layout className="" style={{ height: '300px', width: '500px'  }}>
                     <Aside className="z">aside</Aside>
-                    <Layout>
+                    <Layout className = "out">
                         <Header className="x">header</Header>
                         <Content className="y">content</Content>
                         <Footer className="x">footer</Footer>
