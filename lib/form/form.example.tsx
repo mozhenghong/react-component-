@@ -1,10 +1,8 @@
 import React, { useState, Fragment } from "react";
 import Form from './form'
-interface Props{
+import Validator from './validator'
 
-}
-
-const Formexample:React.FunctionComponent<Props> = () => {
+const Formexample:React.FunctionComponent = () => {
     const [formData,setFormData] = useState({
         username: '',
         password: ''
@@ -19,8 +17,12 @@ const Formexample:React.FunctionComponent<Props> = () => {
             input: {type: 'password'}
     }])
     const onSubmit = (e:React.FormEvent<HTMLFormElement>) => {
-        console.log(formData)
-    }
+        const rules = [
+            {key: 'username', required:true}
+        ]
+        const errors = Validator(formData,rules)
+        console.log('errors->', errors)
+    } 
     return(
         <Form 
             value={formData} 
