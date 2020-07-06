@@ -5,6 +5,7 @@ import IconDemo from './lib/icon/icon.demo'
 import ButtonExample from './lib/button.example'
 import DialogExample from './lib/dialog/dialog.example'
 import LayoutExampe from './lib/layout/layout.example'
+import FormExampe from './lib/form/form.example'
 import  {Aside, Layout, Content, Header, Footer}from './lib/layout/layout'
 import './example.scss'
 const logo = require('./logo.png') 
@@ -34,6 +35,9 @@ ReactDOM.render((
             <li>
               <NavLink to="/layout">布局</NavLink>
             </li>
+            <li>
+              <NavLink to="/form">表单</NavLink>
+            </li>
           </ul>
         </Aside>
         <Content className="site-content">
@@ -41,6 +45,7 @@ ReactDOM.render((
           <Route path="/button" component={ButtonExample}/>
           <Route path="/dialog" component={DialogExample}/>
           <Route path="/layout" component={LayoutExampe}/>
+          <Route path="/form" component={FormExampe}/>
         </Content>
       </Layout>
       <Footer className="site-footer">&copy;momo</Footer>
