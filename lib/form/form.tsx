@@ -1,14 +1,15 @@
 import React, { ReactFragment } from "react";
 
-interface formValue {
+interface FormValue {
     [k: string]: any
 }
 interface Props{
-    value:formValue ,
+    value:FormValue ,
     filds: Array<{name: string, label:string, input: {type: string}}>,
     buttons:ReactFragment,
     onSubmit: React.FormEventHandler<HTMLFormElement>,
-    onChange: (value:formValue) => void
+    onChange: (value:FormValue) => void,
+    errors: {[k:string]: string[]}
 }
 
 const Form:React.FunctionComponent<Props> = (props) => {
@@ -32,6 +33,7 @@ const Form:React.FunctionComponent<Props> = (props) => {
                             value={formData[f.name]}
                             onChange={(e) =>{onInputChange(f.name, e.target.value)}}
                         />
+                        <div>{props.errors[f.name]}</div>
                     </div>
                 ) 
             })}

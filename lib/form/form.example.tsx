@@ -4,8 +4,8 @@ import Validator from './validator'
 
 const Formexample:React.FunctionComponent = () => {
     const [formData,setFormData] = useState({
-        username: '',
-        password: ''
+        // username: '',
+        // password: ''
     })
     const [filds] = useState([{
         name: 'username',
@@ -16,12 +16,15 @@ const Formexample:React.FunctionComponent = () => {
             label: '密码',
             input: {type: 'password'}
     }])
+    const [errors, setErrors] = useState({})
     const onSubmit = (e:React.FormEvent<HTMLFormElement>) => {
         const rules = [
-            {key: 'username', required:true}
+            {key: 'username', required:true},
+            {key: 'password', minLength:3,maxLength: 8}
         ]
         const errors = Validator(formData,rules)
-        console.log('errors->', errors)
+        console.log(errors,'errors')
+        setErrors(errors)
     } 
     return(
         <Form 
@@ -35,8 +38,9 @@ const Formexample:React.FunctionComponent = () => {
             }
             onSubmit={onSubmit}
             onChange={(newValue)=>{setFormData(newValue)}}
+            errors = {errors}
         />
     )
 }
 
-export default Formexample
+export default Formexample 

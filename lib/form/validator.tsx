@@ -1,4 +1,6 @@
-import {FormValue} from './form'
+interface FormValue {
+    [k: string]: any
+}
 
 interface FormRule {
     key: string;
@@ -29,10 +31,10 @@ const Validator = (formValue:FormValue, rules:FormRules):FormErrors => {
        if(rule.required&&isEmpty(value)){
            addError(rule.key, '必填')
        }
-       if(rule.minLength && isEmpty(value) && value!.length < rule.minLength){
+       if(rule.minLength&&!isEmpty(value)&&value!.length < rule.minLength){
         addError(rule.key, '输入太短')
        }
-       if(rule.maxLength && isEmpty(value) && value!.length < rule.maxLength){
+       if(rule.maxLength&&!isEmpty(value)&&value!.length > rule.maxLength){
         addError(rule.key, '输入太长')
        }
        if(rule.pattern){
