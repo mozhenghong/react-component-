@@ -1,6 +1,7 @@
-// function calsses(...names: (string | undefined)[]) {
-//     return names.filter(Boolean).join(' ')
-// }
+function calsses(...names: (string | undefined)[]) {
+    return names.filter(Boolean).join(' ')
+}
+
 interface Options {
     extra: string | undefined
 }
@@ -29,5 +30,4 @@ function scopedClassMaker(prefix: string) {
     }
 }
 
-// export {scopedClassMaker}
-export default scopedClassMaker;
+export {scopedClassMaker,calsses}

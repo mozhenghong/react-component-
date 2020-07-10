@@ -1,6 +1,6 @@
-import scopedClassMaker from '../classes'
+import {scopedClassMaker} from '../classes'
 
-// describe("classes", () => {
+// describe("", () => {
 //     it('接受一个className', () => {
 //       const result = classes('a')
 //       expect(result).toEqual('a')

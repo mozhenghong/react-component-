@@ -1,5 +1,6 @@
 import React, { useState, Fragment } from "react";
 import Form from './form'
+import Button from '../button/button'
 import Validator from './validator'
 
 const Formexample:React.FunctionComponent = () => {
@@ -32,8 +33,8 @@ const Formexample:React.FunctionComponent = () => {
             filds={filds}
             buttons={
                 <Fragment>
-                    <button type="submit">提交</button>
-                    <button type="reset">取消</button>
+                    <Button type="submit" level="important">提交</Button>
+                    <Button type="reset" level="danger">取消</Button>
                 </Fragment>
             }
             onSubmit={onSubmit}

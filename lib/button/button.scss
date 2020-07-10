@@ -1,0 +1,58 @@
+@import '../helper';
+.moui-button{
+    cursor: pointer;
+    &-normal{
+        color: #333;
+        border:1px solid lighten($color:#333, $amount: 50%);
+        background: #fff;
+        padding:4px 16px;
+        line-height: 22px;
+        border-radius: 4px;
+        transition: all 250ms;
+        &:hover, &:focus{
+            border-color: $main-color;
+            color: $main-color;
+        }
+        &:focus{
+            outline: none;
+            border-color: $main-color;
+            color: $main-color;
+        }
+    }
+    &-important{
+        color: #fff;
+        border:1px solid $main-color;
+        background: $main-color;
+        padding:4px 16px;
+        line-height: 22px;
+        border-radius: 4px;
+        transition: all 250ms;
+        &:hover, &:focus{
+            border-color: $main-color;
+            color: #fff;
+        }
+        &:focus{
+            outline: none;
+            border-color: $main-color;
+            color: #fff;
+        }
+    }
+    &-danger{
+        color:red;
+        border:1px solid red;
+        background: #fff;
+        padding:4px 16px;
+        line-height: 22px;
+        border-radius: 4px;
+        transition: all 250ms;
+        &:hover, &:focus{
+            border-color: red;
+            color:red;
+        }
+        &:focus{
+            outline: none;
+            border-color: red;
+            color: red;
+        }
+    }
+}

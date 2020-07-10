@@ -2,10 +2,11 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import {HashRouter as Router, Route, NavLink} from 'react-router-dom'
 import IconDemo from './lib/icon/icon.demo'
-import ButtonExample from './lib/button.example'
+import ButtonExample from './lib/button/button.example'
 import DialogExample from './lib/dialog/dialog.example'
 import LayoutExampe from './lib/layout/layout.example'
 import FormExampe from './lib/form/form.example'
+import InputExample from './lib/input/input.example'
 import  {Aside, Layout, Content, Header, Footer}from './lib/layout/layout'
 import './example.scss'
 const logo = require('./logo.png') 
@@ -30,6 +31,9 @@ ReactDOM.render((
               <NavLink to="/button">Button</NavLink>
             </li>
             <li>
+              <NavLink to="/input">Input</NavLink>
+            </li>
+            <li>
               <NavLink to="/dialog">对话框</NavLink>
             </li>
             <li>
@@ -46,6 +50,7 @@ ReactDOM.render((
           <Route path="/dialog" component={DialogExample}/>
           <Route path="/layout" component={LayoutExampe}/>
           <Route path="/form" component={FormExampe}/>
+          <Route path="/input" component={InputExample}/>
         </Content>
       </Layout>
       <Footer className="site-footer">&copy;momo</Footer>

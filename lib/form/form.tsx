@@ -1,45 +1,59 @@
 import React, { ReactFragment } from "react";
+import Input from '../input/input'
+import {scopedClassMaker} from '../helpers/classes'
+import './form.scss'
 
+const scopedClass = scopedClassMaker('moui-form')
+const sc = scopedClass
 interface FormValue {
     [k: string]: any
 }
-interface Props{
-    value:FormValue ,
-    filds: Array<{name: string, label:string, input: {type: string}}>,
-    buttons:ReactFragment,
+interface Props {
+    value: FormValue,
+    filds: Array<{ name: string, label: string, input: { type: string } }>,
+    buttons: ReactFragment,
     onSubmit: React.FormEventHandler<HTMLFormElement>,
-    onChange: (value:FormValue) => void,
-    errors: {[k:string]: string[]}
+    onChange: (value: FormValue) => void,
+    errors: { [k: string]: string[] }
 }
 
-const Form:React.FunctionComponent<Props> = (props) => {
+const Form: React.FunctionComponent<Props> = (props) => {
     const formData = props.value
     const onSubmit: React.FormEventHandler<HTMLFormElement> = (e) => {
         e.preventDefault()
         props.onSubmit(e)
     }
-    const onInputChange = (name,value) => {
-        const newFormValue = {...formData,[name]:value}
+    const onInputChange = (name, value) => {
+        const newFormValue = { ...formData, [name]: value }
         props.onChange(newFormValue)
     }
-    return(
+    return (
         <form onSubmit={onSubmit}>
-            {props.filds.map((f) => {
-                return(
-                    <div key={f.name}>
-                        {f.label}
-                        <input 
-                            type={f.input.type}
-                            value={formData[f.name]}
-                            onChange={(e) =>{onInputChange(f.name, e.target.value)}}
-                        />
-                        <div>{props.errors[f.name]}</div>
-                    </div>
-                ) 
-            })}
-            <div>
-                {props.buttons}
-            </div>
+            <table>
+                {props.filds.map((f) => {
+                    return (
+                        <tr key={f.name} className={sc('tr')}>
+                            <td className={sc('td')}><span>{f.label}</span></td>
+                            <td className={sc('td')}>
+                                <Input
+                                    type={f.input.type}
+                                    value={formData[f.name]}
+                                    onChange={(e) => { onInputChange(f.name, e.target.value) }}
+                                />
+                                <div>{props.errors[f.name]}</div>
+                            </td>
+                        </tr>
+                    )
+                })}
+                <tr className={sc('tr')}>
+                    <td className={sc('td')}></td>
+                    <td className={sc('td')}>
+                        <div>
+                            {props.buttons}
+                        </div>
+                    </td>
+                </tr>
+            </table>
         </form>
     )
 }

@@ -1,0 +1,21 @@
+.moui-form{
+    &-tr{
+        &:first-child{
+            .moui-form-td{
+                padding-top: 0;
+            }
+        }
+        &:last-child{
+            .moui-form-td{
+                padding-bottom: 0;
+            }
+        }
+    }
+   &-td{
+       padding-top: 0;
+       padding-bottom: 32px;
+   }
+   &-td + &-td{
+       padding-left: 16px;
+   }
+}

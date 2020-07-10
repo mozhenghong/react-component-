@@ -1,0 +1,13 @@
+.moui-input{
+    border:1px solid #ddd;
+    line-height: 22px;
+    padding:4px 8px;
+    border-radius: 4px;
+    box-shadow: 0 0 0 2px fade-out($color: #00adb5, $amount: 1);
+    transition: box-shadow 250ms;
+    &:focus{
+        outline: none;
+        border-color: #00adb5;
+        box-shadow: 0 0 0 2px fade-out($color: #00adb5, $amount: 0.5);
+    }
+}
