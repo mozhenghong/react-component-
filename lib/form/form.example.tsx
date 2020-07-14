@@ -34,7 +34,7 @@ const Formexample:React.FunctionComponent = () => {
             buttons={
                 <Fragment>
                     <Button type="submit" level="important">提交</Button>
-                    <Button type="reset" level="danger">取消</Button>
+                    <Button type="reset">取消</Button>
                 </Fragment>
             }
             onSubmit={onSubmit}

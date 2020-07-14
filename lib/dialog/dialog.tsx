@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom'
 import Icon from '../icon/icon'
 import './dialog.scss'
 import {scopedClassMaker} from '../helpers/classes'
+import Button from '../button/button'
 
 interface Props {
     visible: boolean;
@@ -56,7 +57,7 @@ Dialog.defaultProps = {
 }
 
 const alert = (content:string) => {
-   const button = <button onClick={() => close()}>OK</button>
+   const button = <Button onClick={() => close()}>OK</Button>
    const close = modal(content,[button])
 }
 
@@ -70,8 +71,8 @@ const confirm = (content:  string, yes?: ()=>void, no?: ()=> void) => {
         no&&no()
     }
     const buttons=[
-        <button onClick={onYes}>确定</button>, 
-        <button onClick={onNo}>取消</button>
+        <Button onClick={onYes}>确定</Button>, 
+        <Button onClick={onNo}>取消</Button>
     ]
    const close = modal(content,buttons)
 }
