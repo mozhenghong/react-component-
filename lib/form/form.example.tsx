@@ -3,6 +3,16 @@ import Form from './form'
 import Button from '../button/button'
 import Validator from './validator'
 
+// const usernames = ['momo','haha','lala']
+// const checkUserName = (username:string,succeed: ()=>void,fail:()=>void) => {
+//     setTimeout(() => {
+//         if(usernames.indexOf(username)>=0){
+//             succeed()
+//         }else{
+//             fail()
+//         }
+//     },3000)
+// }
 const Formexample:React.FunctionComponent = () => {
     const [formData,setFormData] = useState({
         // username: '',
@@ -21,10 +31,18 @@ const Formexample:React.FunctionComponent = () => {
     const onSubmit = (e:React.FormEvent<HTMLFormElement>) => {
         const rules = [
             {key: 'username', required:true},
+            // {key: 'username', validators:{
+            //     name: 'uniq',
+            //     validate:(username:string)=>{
+            //     return new Promise((resolve,reject)=>{
+            //         checkUserName(username,resolve,reject)
+            //     })
+            // }}},
+            {key: 'password', required:true},
             {key: 'password', minLength:3,maxLength: 8}
         ]
         const errors = Validator(formData,rules)
-        console.log(errors,'errors')
+        console.log(errors,'1465161')
         setErrors(errors)
     } 
     return(
@@ -40,6 +58,7 @@ const Formexample:React.FunctionComponent = () => {
             onSubmit={onSubmit}
             onChange={(newValue)=>{setFormData(newValue)}}
             errors = {errors}
+            errorsDisplayMode='all'
         />
     )
 }

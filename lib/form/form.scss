@@ -11,11 +11,20 @@
             }
         }
     }
+    &-label{
+        line-height: 32px;
+    }
    &-td{
+       vertical-align: top;
        padding-top: 0;
-       padding-bottom: 32px;
+       padding-bottom: 8px;
    }
    &-td + &-td{
        padding-left: 16px;
+   }
+   &-error{
+      color: red;
+      font-size: 0.8em;
+      margin-top:4px;
    }
 }
