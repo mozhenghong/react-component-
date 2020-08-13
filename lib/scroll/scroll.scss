@@ -1,13 +1,30 @@
 .moui-scroll{
     position:relative;
     overflow: hidden;
+    width: 50vw;
     &-inner{
         border: 2px solid green;
         position: absolute;
         top: 0;
         bottom: 0;
         left: 0;
-        right: -17px;
+        right: 0;
         overflow: auto;
+    }
+    &-track{
+        width:10px;
+        height:100%;
+        position: absolute;
+        top:0;
+        right:0;
+    }
+    &-bar{
+        height:30px;
+        width:8px;
+        border-radius: 4px;
+        position: absolute;
+        top:0;
+        right:1px;
+        background: rgba(68, 105, 143,0.8);
     }
 }
