@@ -7,6 +7,7 @@ import DialogExample from './lib/dialog/dialog.example'
 import LayoutExampe from './lib/layout/layout.example'
 import FormExampe from './lib/form/form.example'
 import InputExample from './lib/input/input.example'
+import ScrollExample from './lib/scroll/scroll.example'
 import  {Aside, Layout, Content, Header, Footer}from './lib/layout/layout'
 import './example.scss'
 const logo = require('./logo.png') 
@@ -42,6 +43,9 @@ ReactDOM.render((
             <li>
               <NavLink to="/form">表单</NavLink>
             </li>
+            <li>
+              <NavLink to="/scroll">滚动条</NavLink>
+            </li>
           </ul>
         </Aside>
         <Content className="site-content">
@@ -51,6 +55,8 @@ ReactDOM.render((
           <Route path="/layout" component={LayoutExampe}/>
           <Route path="/form" component={FormExampe}/>
           <Route path="/input" component={InputExample}/>
+          <Route path="/scroll" component={ScrollExample}/>
+
         </Content>
       </Layout>
       <Footer className="site-footer">&copy;momo</Footer>

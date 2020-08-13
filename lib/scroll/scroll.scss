@@ -1,0 +1,13 @@
+.moui-scroll{
+    position:relative;
+    overflow: hidden;
+    &-inner{
+        border: 2px solid green;
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: -17px;
+        overflow: auto;
+    }
+}
