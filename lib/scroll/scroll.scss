@@ -29,4 +29,9 @@
         right:1px;
         background: rgba(68, 105, 143,0.8);
     }
+    &-pulling{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
 }
