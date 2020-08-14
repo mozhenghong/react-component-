@@ -10,10 +10,12 @@ const Scroll:React.FunctionComponent<Props> = (props) => {
     const {children, ...rest} = props
     const [barHeight,setBarHeight]=useState(0)
     const [barTop, setBarTop] = useState(0)
+    const [barVisible, setBarVisible] =  useState(false)
     const containerRef = useRef<HTMLDivElement>(null)
     const draggingRef = useRef(false)
     const firstYRef = useRef(0)
     const firstBarTopRef = useRef(0)
+    const timeIdRef = useRef<number | null>(null)
     const _setBarTop = (number)=> {
         if(number<0){return}
         const scrollHeight = containerRef.current!.scrollHeight
@@ -24,10 +26,17 @@ const Scroll:React.FunctionComponent<Props> = (props) => {
     }
 
     const onScroll: UIEventHandler = (e) =>{
+        setBarVisible(true)
         const scrollHeight = containerRef.current!.scrollHeight
         const viewHeight = containerRef.current!.getBoundingClientRect().height
         const scrollTop = containerRef.current!.scrollTop
         _setBarTop(scrollTop*viewHeight/scrollHeight)
+        if(timeIdRef.current!==null){
+            window.clearTimeout(timeIdRef.current)
+        }
+        timeIdRef.current = window.setTimeout(() => {
+            setBarVisible(false)
+        }, 300)
     }
     const onMouseDownBar:MouseEventHandler = (e) => {
         draggingRef.current = true
@@ -74,11 +83,12 @@ const Scroll:React.FunctionComponent<Props> = (props) => {
                 onScroll={onScroll}>
                 {children}
             </div>
+            {barVisible&&
             <div className="moui-scroll-track">
                 <div className="moui-scroll-bar" style={{height:barHeight, transform: `translateY(${barTop}px)`}}
                     onMouseDown = {onMouseDownBar}
                 ></div>
-            </div>
+            </div>}
         </div>
     )
 }

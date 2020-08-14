@@ -5,8 +5,8 @@ import Scroll from './scroll'
 const ScrollExample:React.FunctionComponent = () => {
     return (
         <div>
-            <h2>第一个例子</h2>
-            <Scroll style={{height: '300px', border: '1px solid red'}}>
+            <h3>滚动条</h3>
+            <Scroll style={{height: '300px', border: '1px solid rgba(68, 105, 143,0.8)'}}>
                 <p>1</p>
                 <p>2</p>
                 <p>3</p>
