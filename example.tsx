@@ -8,6 +8,7 @@ import LayoutExampe from './lib/layout/layout.example'
 import FormExampe from './lib/form/form.example'
 import InputExample from './lib/input/input.example'
 import ScrollExample from './lib/scroll/scroll.example'
+import TreeExample from './lib/tree/tree.example' 
 import  {Aside, Layout, Content, Header, Footer}from './lib/layout/layout'
 import './example.scss'
 const logo = require('./logo.png') 
@@ -46,6 +47,9 @@ ReactDOM.render((
             <li>
               <NavLink to="/scroll">滚动条</NavLink>
             </li>
+            <li>
+              <NavLink to="/tree">树形组件</NavLink>
+            </li>
           </ul>
         </Aside>
         <Content className="site-content">
@@ -56,7 +60,7 @@ ReactDOM.render((
           <Route path="/form" component={FormExampe}/>
           <Route path="/input" component={InputExample}/>
           <Route path="/scroll" component={ScrollExample}/>
-
+          <Route path="/tree" component={TreeExample}/>
         </Content>
       </Layout>
       <Footer className="site-footer">&copy;momo</Footer>
