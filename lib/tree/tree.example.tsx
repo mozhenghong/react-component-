@@ -34,7 +34,7 @@ const TreeExample:React.FunctionComponent = () => {
         <div>
             <h3>展示数据</h3>
             <div style={{width: '200px'}}>
-                <Tree sourceData={treeData}/>
+                <Tree sourceData={treeData} selectedValues={['1.1.1','2.2']}/>
             </div>
         </div>
     )
