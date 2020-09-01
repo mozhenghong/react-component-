@@ -31,7 +31,14 @@
             padding-left: 4em;
         }
     }
+    &-text{
+        display: block;
+    }
     &-text:hover{
         background: rgb(68, 105, 143);;
+    }
+    &-collapse{
+        height:0;
+        overflow: hidden;
     }
 }
