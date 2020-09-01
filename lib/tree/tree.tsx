@@ -9,8 +9,8 @@ export interface SourceDataItem {
 }
 
 //联合类型
-type A = { selected: string[], multiple: true, onChange: (newSelected: string[])=> void}
-type B = { selected: string, multiple?: false,  onChange: (newSelected: string)=> void }
+type A = { selected: string[], multiple: true, onChange: (newSelected: string[],multiple: boolean)=> void}
+type B = { selected: string, multiple: false,  onChange: (newSelected: string, multiple: boolean)=> void }
 type Props = {
     sourceData: SourceDataItem[];
 } & (A | B)
@@ -28,10 +28,12 @@ const Tree: React.FunctionComponent<Props> = (props) => {
         const onChange = (item:SourceDataItem, bool:boolean) => {
             if(props.multiple){
                 if(bool){
-                    props.onChange([...props.selected,item.value])
+                    props.onChange([...props.selected,item.value], props.multiple)
                 }else{
-                    props.onChange(props.selected.filter(value => value!==item.value))
+                    props.onChange(props.selected.filter(value => value!==item.value), props.multiple)
                 }
+            }else{
+                props.onChange(item.value,props.multiple)
             }
         }
         const checked = props.multiple ? props.selected.indexOf(item.value) >= 0 : props.selected === item.value
@@ -49,7 +51,7 @@ const Tree: React.FunctionComponent<Props> = (props) => {
         </div>
     }
     return (
-        <div>
+        <div className={sc('wrap')}>
             {props.sourceData.map((item) => {
                 return renderItem(item)
             })}
