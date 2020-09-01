@@ -9,11 +9,10 @@ export interface SourceDataItem {
 }
 
 //联合类型
-type A = { selected: string[], multiple: true }
-type B = { selected: string, multiple?: false }
+type A = { selected: string[], multiple: true, onChange: (newSelected: string[])=> void}
+type B = { selected: string, multiple?: false,  onChange: (newSelected: string)=> void }
 type Props = {
     sourceData: SourceDataItem[];
-    onChange: (item: SourceDataItem, bool: boolean) => void
 } & (A | B)
 
 const scopedClass = scopedClassMaker('moui-tree')
@@ -24,14 +23,23 @@ const Tree: React.FunctionComponent<Props> = (props) => {
     const renderItem = (item: SourceDataItem, level = 1) => {
         const classes = {
             ['level-' + level]: true,
-            'item': true
+            'item': true 
+        }
+        const onChange = (item:SourceDataItem, bool:boolean) => {
+            if(props.multiple){
+                if(bool){
+                    props.onChange([...props.selected,item.value])
+                }else{
+                    props.onChange(props.selected.filter(value => value!==item.value))
+                }
+            }
         }
         const checked = props.multiple ? props.selected.indexOf(item.value) >= 0 : props.selected === item.value
         return <div key={item.value} className={sc(classes)}>
             <div className={sc('text')}>
                 <input type="checkbox"
                     checked={checked}
-                    onChange={() => { props.onChange(item, props.selected.indexOf(item.value) >= 0) }}
+                    onChange={(e) => {onChange(item,e.target.checked)}}
                 />
                 {item.text}
             </div>

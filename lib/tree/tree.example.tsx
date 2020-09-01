@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import Tree, {SourceDataItem} from './tree'
+import Tree from './tree'
 
 const TreeExample:React.FunctionComponent = () => {
     const [treeData] = useState([{
@@ -32,13 +32,9 @@ const TreeExample:React.FunctionComponent = () => {
     }])
     
     const [selectedValues,setSelectedValues] = useState(['1.1.1','2.2'])
-    const [selectedValue] = useState('1')
-    const onChange = (item:SourceDataItem, bool:boolean) => {
-        if(!bool){
-            setSelectedValues([...selectedValues,item.value])
-        }else{
-            setSelectedValues(selectedValues.filter(value => value!==item.value))
-        }
+    // const [selectedValue] = useState('1')
+    const onChange = (selected) => {
+        setSelectedValues(selected)
     }
     return (
         <div>
@@ -46,8 +42,8 @@ const TreeExample:React.FunctionComponent = () => {
             <div style={{width: '200px'}}>
                 <h4>多选</h4>
                 <Tree sourceData={treeData} selected={selectedValues} multiple={true} onChange={onChange}/>
-                <h4>单选</h4>
-                <Tree sourceData={treeData} selected={selectedValue} multiple={false} onChange={onChange}/>
+                {/* <h4>单选</h4>
+                <Tree sourceData={treeData} selected={selectedValue} multiple={false} onChange={onChange}/> */}
             </div>
         </div>
     )
