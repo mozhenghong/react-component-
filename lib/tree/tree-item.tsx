@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useRef } from 'react'
 import Icon from '../icon/icon'
 import { scopedClassMaker } from '../helpers/classes'
 import './tree.scss'
@@ -36,10 +36,23 @@ const RenderItem:React.FunctionComponent<Props>= (props) => {
         }
     }
     const [expended, setExpened] = useState(true)
-
+    const divref = useRef<HTMLDivElement>(null)
     //使用自定义hooksuseUpdate
     useUpdate(expended, () => {
-        console.log('expend值变化了', expended)
+        if(expended){
+            if(!divref.current){return}
+            divref.current.style.height = 'auto'
+            const {height} = divref.current.getBoundingClientRect()
+            divref.current.style.height = '0px'
+            divref.current.getBoundingClientRect()
+            divref.current.style.height = height + 'px'
+        }else{
+            if(!divref.current){return}
+            const {height} = divref.current.getBoundingClientRect()
+            divref.current.style.height = height + 'px'
+            divref.current.getBoundingClientRect()
+            divref.current.style.height = '0px'
+        }
     })
     const expend = () => {
         setExpened(!expended)
@@ -69,7 +82,7 @@ const RenderItem:React.FunctionComponent<Props>= (props) => {
                 </span>
             }
         </div>
-        <div className={sc({'children': true,'collapse':!expended})}>
+        <div ref={divref} className={sc({'children': true,'collapse':!expended})}>
             {item.children?.map((inneritem) => {
                 // return renderItem(inneritem, level + 1)
                 return <RenderItem key={inneritem.value} treeProps={treeProps} item={inneritem} level={level + 1} />

@@ -1,7 +1,7 @@
 .moui-tree{
     &-wrap{
         border:1px solid rgb(68, 105, 143);
-        padding: 20px;
+        // padding: 20px;
     }
     &-item{
         line-height: 1.5;
@@ -37,8 +37,8 @@
     &-text:hover{
         background: rgb(68, 105, 143);;
     }
-    &-collapse{
-        height:0;
+    &-children{
         overflow: hidden;
+        transition: height 1s;
     }
 }
