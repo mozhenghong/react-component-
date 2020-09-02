@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import Icon from '../icon/icon'
 import { scopedClassMaker } from '../helpers/classes'
 import './tree.scss'
+import useUpdate from '../hooks/useUpdate'
     
 interface Props {
     item: SourceDataItem;
@@ -35,6 +36,11 @@ const RenderItem:React.FunctionComponent<Props>= (props) => {
         }
     }
     const [expended, setExpened] = useState(true)
+
+    //使用自定义hooksuseUpdate
+    useUpdate(expended, () => {
+        console.log('expend值变化了', expended)
+    })
     const expend = () => {
         setExpened(!expended)
     }
