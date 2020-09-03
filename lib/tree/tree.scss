@@ -32,13 +32,24 @@
         }
     }
     &-text{
-        display: block;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
     }
     &-text:hover{
         background: rgb(68, 105, 143);;
     }
     &-children{
         overflow: hidden;
-        transition: height 1s;
+        transition: height 200ms;
+    }
+    &-icon{
+        display: flex;
+        border:1px solid #ddd;
+        width:15px;
+        height:15px;
+        justify-content: center;
+        align-items: center;
+        margin-right:10px;
     }
 }

@@ -1,5 +1,5 @@
 import React, { useState, useRef } from 'react'
-import Icon from '../icon/icon'
+// import Icon from '../icon/icon'
 import { scopedClassMaker } from '../helpers/classes'
 import './tree.scss'
 import useUpdate from '../hooks/useUpdate'
@@ -63,20 +63,22 @@ const RenderItem:React.FunctionComponent<Props>= (props) => {
     const checked = treeProps.multiple ? treeProps.selected.indexOf(item.value) >= 0 : treeProps.selected === item.value
     return <div key={item.value} className={sc(classes)}>
         <div className={sc('text')}>
-            <input type="checkbox"
-                checked={checked}
-                onChange={(e) => { onChange(item, e.target.checked) }}
-            />
-            {item.text}
+            <div>
+                <input type="checkbox"
+                    checked={checked}
+                    onChange={(e) => { onChange(item, e.target.checked) }}
+                />
+                {item.text}
+            </div>
             {
                 !!item.children &&
                 <span onSelect={(e) => {e.preventDefault()}}>
                     {expended ?
-                        <span onClick={expend}>
-                            <Icon name="expend" />
+                        <span onClick={expend}  className={sc('icon')}>
+                            -
                         </span> :
-                        <span onClick={collapse}>
-                            <Icon name="collapse" />
+                        <span onClick={collapse} className={sc('icon')}>
+                            +
                         </span>
                     }
                 </span>
